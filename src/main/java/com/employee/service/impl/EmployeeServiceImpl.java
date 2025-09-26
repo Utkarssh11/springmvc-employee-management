@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -64,7 +65,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         
         return Stream.concat(byFirstName.stream(), byLastName.stream())
                 .distinct()
-                .toList();
+                .collect(Collectors.toList());
     }
     
     @Override
